@@ -2,15 +2,16 @@
 
 #pragma once
 
+#include "TankAimingComponent.h"
 #include "GameFramework/Pawn.h"
-#include "Tank.generated.h"
+#include "Tank.generated.h" // Put new includes above this
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
 {
 	GENERATED_BODY()
 
-public:
+private:
 	// Sets default values for this pawn's properties
 	ATank();
 
@@ -25,6 +26,17 @@ public:
 
 	void RotateTurret();
 
-	
+	UPROPERTY(EditAnywhere, Category = "Firing")
+		float LaunchSpeed = 100000; // TODO Find sensible default
+
+protected:
+	UTankAimingComponent* TankAimingComponent = nullptr;
+
+
+public:
+	void AimAt(FVector HitLocation);
+
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
 	
 };

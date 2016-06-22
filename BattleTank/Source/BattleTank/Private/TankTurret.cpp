@@ -11,7 +11,7 @@ void UTankTurret::Rotate(float RelativeSpeed)
 
 	// Given a max elevation speed, and the frame time
 	auto RotationChange = RelativeSpeed * MaxDegreesPerSecond * GetWorld()->DeltaTimeSeconds;
-	auto NewRotation = RelativeRotation.Yaw + RotationChange;
+	auto Rotation = RelativeRotation.Yaw + RotationChange;
 
-	SetRelativeRotation(FRotator(0, NewRotation, 0));
+	SetRelativeRotation(FRotator(0, Rotation, 0));
 }

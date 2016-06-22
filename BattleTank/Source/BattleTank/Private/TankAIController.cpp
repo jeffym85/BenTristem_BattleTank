@@ -10,14 +10,6 @@ void ATankAIController::BeginPlay()
 	Super::BeginPlay();
 
 	auto* PlayerTank = GetPlayerTank();
-	if (!PlayerTank)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("AI PlayerController can't find player tank!"));
-	}
-	else
-	{
-		UE_LOG(LogTemp,Warning, TEXT("AI PlayerController found %s"), *(PlayerTank->GetName()));
-	}
 }
 
 void ATankAIController::Tick(float DeltaTime)
